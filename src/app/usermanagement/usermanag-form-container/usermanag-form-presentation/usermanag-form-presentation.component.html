@@ -1,0 +1,82 @@
+<p>usermanag-form-presentation works!</p>
+<div class="container">
+    <form class="row" [formGroup]="userForm">
+
+        <div class="col-md-9">
+            <label for="firstname" class="form-label">First Name: </label>
+            <input type="text" class="form-control" formControlName="firstname" id="firstname" required>
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.firstname.touched || submitted) && userFormControl.firstname.errors?.required">
+            First Name is Required
+        </span>
+
+
+        <div class="col-md-9">
+            <label for="lastname" class="form-label">Last Name: </label>
+            <input type="text" class="form-control" formControlName="lastname" id="lastname" required>
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.lastname.touched || submitted) && userFormControl.lastname.errors?.required">
+            Last Name is required
+        </span>
+
+        <div class="col-md-9">
+            <label for="clientname" class="form-label">client Name: </label>
+            <select class="form-select" id="clientname" formControlName="clientname" required>
+                <option selected disabled value="">Choose...</option>
+                <option>clint1</option>
+                <option>clint2</option>
+                <option>clint3</option>
+                <option>clint4</option>
+            </select>
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.clientname.touched || submitted) && userFormControl.clientname.errors?.required">
+            Client Name is required
+        </span>
+
+
+        <div class="col-md-9">
+            <label for="email" class="form-label">Email: </label>
+            <input type="text" class="form-control" formControlName="email" id="email" required>
+
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.email.touched || submitted) && userFormControl.email.errors?.required">
+            Email is required
+        </span>
+
+        <div class="col-md-9">
+            <label for="office" class="form-label">Office: </label>
+            <select class="form-select" id="office" formControlName="office" required>
+                <option selected disabled value="">Choose...</option>
+                <option>office1</option>
+                <option>office2</option>
+                <option>office3</option>
+                <option>office4</option>
+            </select>
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.office.touched || submitted) && userFormControl.office.errors?.required">
+            Office is required
+        </span>
+
+
+        <div class="col-md-9">
+            <label for="contactno" class="form-label">Contact No: </label>
+            <input type="text" class="form-control" appPhoneMask formControlName="contactno" id="contactno" required>
+        </div>
+        <span class="text-danger"
+            *ngIf="(userFormControl.contactno.touched || submitted) && userFormControl.contactno.errors?.required">
+            contact No is required
+        </span>
+
+        <div class="col-9">
+            <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid"
+                (click)="onSubmit()">Submit</button>
+            <input class="btn btn-primary" type="reset" value="Clear">
+        </div>
+
+    </form>
+</div>

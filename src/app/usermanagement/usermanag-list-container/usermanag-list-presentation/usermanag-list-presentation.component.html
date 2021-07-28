@@ -1,0 +1,70 @@
+<div>
+    <button class="btn btn-outline-danger m-1" data-toggle="tooltip" data-placement="right" title="add"
+        routerLink='add'>
+        Add Details
+    </button>
+    <div class="form-group mb-4">
+        <label>Search</label>
+        <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
+    </div>
+
+    <table class="table table-bordered" *ngIf="( usermanglist ).length > 0,else noResults">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">client Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Office</th>
+                <th scope="col" appPhoneMask>Contact No</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let usermanag of usermanglist | filter: searchText; let i = index">
+            <tr>
+                <td> {{usermanag.id}} </td>
+                <td> {{usermanag.firstname}} </td>
+                <td> {{usermanag.lastname}} </td>
+                <td> {{usermanag.clientname}} </td>
+                <td> {{usermanag.email}} </td>
+                <td> {{usermanag.office}} </td>
+                <td> {{usermanag.contactno}} </td>
+
+                <td class="text-center">
+                    <!-- <button class="bi bi-three-dots-vertical"></button> -->
+                    <!-- <button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right"
+                        title="Edit" routerLink="/bankdetail/{{usermanag.id}}">
+                        Edit
+                    </button> -->
+
+                    <button class="btn btn-outline-danger m-1" data-toggle="tooltip" data-placement="right"
+                        title="Delete" (click)="deleteuserdetail(usermanag.id)">
+                        Delete
+                    </button>
+            </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ng-template #noResults>
+        <p>No results found for "{{searchText}}".</p>
+    </ng-template>
+</div>
