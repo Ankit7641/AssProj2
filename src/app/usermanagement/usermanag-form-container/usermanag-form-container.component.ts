@@ -29,7 +29,7 @@ export class UsermanagFormContainerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // Data will add to addbankdetailservice
+  // Data will add to adduserdetailservice
   public adduserdetail(user: Usermanagement) {
     if(this.id){
       this.restApi.updateuserdetail(this.id,user).subscribe(()=>{

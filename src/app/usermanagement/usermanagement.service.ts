@@ -21,20 +21,20 @@ export class UsermanagementService {
     })
   }
 
-  // Get List Of Bank Detail 
+  // Get List Of user Detail 
   public getuserdetails(): Observable<Usermanagement> {
     console.log(Usermanagement)
     return this.http.get<Usermanagement>(this.apiURL + '/user')
   }
 
-  // Add Bank Detail
+  // Add user Detail
   public adduserdetail(bank: Usermanagement): Observable<Usermanagement> {
     return this.http.post<Usermanagement>(this.apiURL + '/user/', bank)
 
   }
 
 
-  // Delete Bank Detail by ID
+  // Delete user Detail by ID
   public deleteuserdetail(id: number) {
     return this.http.delete<Usermanagement>(this.apiURL + '/user/' + id)
 
@@ -45,7 +45,7 @@ export class UsermanagementService {
     return this.http.get<Usermanagement>(this.apiURL + '/user/' + id)
   }
 
-  // Update Bank Detail
+  // Update user Detail
   updateuserdetail(id: string, bank: any): Observable<Usermanagement> {
     return this.http.put<Usermanagement>(this.apiURL + '/user/' + id, (bank))
   }

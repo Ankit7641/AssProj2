@@ -32,13 +32,13 @@ export class UsermanagListContainerComponent implements OnInit {
   // DAta will be deleted
   public onDeleteId(id: number) {
     this.usermanglist$=this.userservice.deleteuserdetail(id)
-    //this.location.back();
+    this.location.back();
   }
   private getUsers(): void {
     debugger
     this.usermanglist$ = this.userservice.getUsersAll( this.fieldName, this.orderAs);
   }
-  
+
   public sort(value:any): void {
     debugger
     this.fieldName = value.key;

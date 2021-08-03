@@ -37,13 +37,13 @@ export class UsermanagListPresenterService {
   }
 
 
-  // Delete Bank detail 
+  // Delete user detail 
   public deleteuserdetail(id: number) {
     debugger
     console.log('delete', id);
     if (window.confirm('Are you sure, you want to delete?')) {
       this.restApi.deleteuserdetail(id).subscribe(data => {
-        // this.loadbankdetail()
+        // this.loaduserdetail()
       })
     }
   }

@@ -12,22 +12,37 @@
         
         <thead>
             <tr>
-                <!-- <th scope="col">Id</th> -->
+                <th scope="col">Id</th>
                 <th class="fa fa-arrow-up" scope="pointer" (click)="sortData('firstname')" >First Name
                     <span class="glyphicon sort-icon" *ngIf="key =='firstname'"
                     [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
-                <th scope="pointer" (click)="sortData('lastname')" >Last Name</th>
-                <th scope="col" (click)="sortData('clientname')" >client Name</th>
-                <th scope="col" (click)="sortData('email')" >Email</th>
-                <th scope="col" (click)="sortData('office')" >Office</th>
-                <th scope="col" (click)="sortData('contactno')" >Contact No</th>
+                <th scope="pointer" (click)="sortData('lastname')" >Last Name
+                    <span class="glyphicon sort-icon" *ngIf="key =='lastname'"
+                    [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sortData('clientname')" >client Name
+                    <span class="glyphicon sort-icon" *ngIf="key =='clientname'"
+                    [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sortData('email')" >Email
+                    <span class="glyphicon sort-icon" *ngIf="key =='email'"
+                    [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sortData('office')" >Office
+                    <span class="glyphicon sort-icon" *ngIf="key =='office'"
+                    [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th scope="col" (click)="sortData('contactno')" >Contact No
+                    <span class="glyphicon sort-icon" *ngIf="key =='contactno'"
+                    [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody *ngFor="let usermanag of usermanglist |slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | filter: searchText; let i = index">
             <tr>
-                <!-- <td> {{usermanag.id}} </td> -->
+                <td> {{usermanag.id}} </td>
                 <td> {{usermanag.firstname}} </td>
                 <td> {{usermanag.lastname}} </td>
                 <td> {{usermanag.clientname}} </td>

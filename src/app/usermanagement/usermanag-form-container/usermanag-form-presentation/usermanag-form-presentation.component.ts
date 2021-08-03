@@ -46,7 +46,7 @@ export class UsermanagFormPresentationComponent implements OnInit {
 
   ngOnInit(): void {
 
-// It call data from BankdetailFormPresenterService
+// It call data from usermanagFormPresenterService
     this.userService.userData$.subscribe((userData: any) => {
       debugger
       console.log(userData)
