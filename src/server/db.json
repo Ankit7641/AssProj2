@@ -1,31 +1,13 @@
 {
   "user": [
     {
-      "id": 1,
-      "firstname": "Ankit",
-      "lastname": "Prajapati",
-      "clientname": "MI",
-      "email": "ankit@gmail.com",
-      "office": "office1",
-      "contactno": "985-632-1478"
-    },
-    {
-      "id": 1,
-      "firstname": "Amit",
-      "lastname": "patel",
-      "clientname": "Samsung",
-      "email": "amit@gmail.com",
-      "office": "office2",
-      "contactno": "985-632-2278"
-    },
-    {
-      "id": 1,
       "firstname": "pranav",
       "lastname": "chavda",
-      "clientname": "oppo",
+      "clientname": "clint2",
       "email": "pranav@gmail.com",
-      "office": "office3",
-      "contactno": "985-633-3478"
+      "office": "office1",
+      "contactno": "985-633-3478",
+      "id": 1
     },
     {
       "firstname": "dhruv",
@@ -35,6 +17,15 @@
       "office": "office1",
       "contactno": "123-456-9872",
       "id": 2
+    },
+    {
+      "firstname": "asha",
+      "lastname": "patel",
+      "clientname": "clint1",
+      "email": "asha@gmail.com",
+      "office": "office1",
+      "contactno": "123-456-7890",
+      "id": 3
     }
   ]
 }

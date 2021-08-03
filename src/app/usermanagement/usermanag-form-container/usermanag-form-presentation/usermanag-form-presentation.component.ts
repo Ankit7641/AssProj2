@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usermanagement } from '../../usermanagement.model';
 import { UsermanagementService } from '../../usermanagement.service';
 import { UsermanagFormPresenterService } from '../usermanag-form-presenter/usermanag-form-presenter.service';
 
@@ -16,6 +17,20 @@ export class UsermanagFormPresentationComponent implements OnInit {
 
   submitted = false;
 
+  private _usermanglistbyId: Usermanagement[] = [];
+
+  @Input() public set usermanglistbyId( id: Usermanagement[]) {
+    if (id) {
+      this._usermanglistbyId = id
+    }
+    debugger
+    this.userForm.patchValue(this.usermanglistbyId)
+  }
+
+  public get usermanglistbyId(): Usermanagement[] {
+    return this._usermanglistbyId
+  }
+
   @Output() userData: EventEmitter<any> = new EventEmitter();
 
   public userForm: FormGroup = this.userService.bindForm();
@@ -25,7 +40,9 @@ export class UsermanagFormPresentationComponent implements OnInit {
     private resApi: UsermanagementService,
     public actRoute: ActivatedRoute,
     public router: Router
-  ) { }
+  ) {
+    this.usermanglistbyId=[];
+   }
 
   ngOnInit(): void {
 

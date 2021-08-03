@@ -49,4 +49,11 @@ export class UsermanagementService {
   updateuserdetail(id: string, bank: any): Observable<Usermanagement> {
     return this.http.put<Usermanagement>(this.apiURL + '/user/' + id, (bank))
   }
+
+
+  //sort
+  getUsersAll(key:string,order:string):Observable<any>{
+    debugger
+    return this.http.get<any>(`${this.apiURL+'/user/'}?q=&_sort=${key}&_order=${order}`)
+  }
 }

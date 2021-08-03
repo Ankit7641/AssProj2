@@ -16,6 +16,10 @@ const routes: Routes = [
     {
       path: 'add',
       component: UsermanagFormContainerComponent
+    },
+    {
+      path: 'Edit/:id',
+      component: UsermanagFormContainerComponent
     }
   ]
 }

@@ -1,2 +1,2 @@
 <p>usermanag-form-container works!</p>
-<app-usermanag-form-presentation (userData)="adduserdetail($event)"></app-usermanag-form-presentation>
+<app-usermanag-form-presentation [usermanglistbyId]="usermanglistbyId$ | async" (userData)="adduserdetail($event)"></app-usermanag-form-presentation>

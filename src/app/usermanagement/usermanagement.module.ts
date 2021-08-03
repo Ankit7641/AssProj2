@@ -12,6 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsermanagementService } from './usermanagement.service';
 import { FilterPipe } from './usermanag-list-container/usermanag-list-presentation/filter.pipe';
 import { PhoneMaskDirective } from './usermanag-form-container/usermanag-form-presentation/phone-mask.directive';
+import { OrderByPipe } from './usermanag-list-container/usermanag-list-presentation/order-by.pipe';
+
+
+
+//import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -23,7 +28,13 @@ import { PhoneMaskDirective } from './usermanag-form-container/usermanag-form-pr
     UsermanagFormContainerComponent,
     UsermanagFormPresentationComponent,
     FilterPipe,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    OrderByPipe,
+    
+
+    
+    //OverlayModule
+
   
   ],
   imports: [

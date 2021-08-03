@@ -12,7 +12,13 @@ import { Location } from '@angular/common';
 export class UsermanagListContainerComponent implements OnInit {
 
   public usermanglist$: Observable<any> = of();
-  usermanglist: any;
+
+  //sort
+  public orderAs!: string;
+  public fieldName!: string;
+  
+
+  
 
   constructor(
     private userservice: UsermanagementService,
@@ -25,7 +31,18 @@ export class UsermanagListContainerComponent implements OnInit {
   }
   // DAta will be deleted
   public onDeleteId(id: number) {
-    this.userservice.deleteuserdetail(id)
-    this.location.back();
+    this.usermanglist$=this.userservice.deleteuserdetail(id)
+    //this.location.back();
+  }
+  private getUsers(): void {
+    debugger
+    this.usermanglist$ = this.userservice.getUsersAll( this.fieldName, this.orderAs);
+  }
+  
+  public sort(value:any): void {
+    debugger
+    this.fieldName = value.key;
+    this.orderAs = value.order;
+    this.getUsers();
   }
 }

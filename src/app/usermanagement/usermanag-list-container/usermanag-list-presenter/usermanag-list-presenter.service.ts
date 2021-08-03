@@ -47,4 +47,14 @@ export class UsermanagListPresenterService {
       })
     }
   }
+
+  // Sort
+  public order(order: string): string {
+    debugger
+    if (order === 'asc') {
+      return 'desc';
+    } else {
+      return 'asc';
+    }
+  }
 }
