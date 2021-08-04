@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+
 import { Usermanagement } from '../../usermanagement.model';
 import { UsermanagListPresenterService } from '../usermanag-list-presenter/usermanag-list-presenter.service';
+//import { Overlay } from "@angular/cdk/overlay";
+//import { ComponentPortal } from "@angular/cdk/portal";
+//import { UsermanagFormPresentationComponent } from '../../usermanag-form-container/usermanag-form-presentation/usermanag-form-presentation.component';
+
 
 @Component({
   selector: 'app-usermanag-list-presentation',
@@ -48,7 +53,7 @@ export class UsermanagListPresentationComponent implements OnInit {
   public bankGroup: FormGroup;
 
   constructor(
-    private userservice: UsermanagListPresenterService
+    private userservice: UsermanagListPresenterService,
   ) {
     this.usermanglist = [];
     this.bankGroup = this.userservice.bindForm();
@@ -73,6 +78,30 @@ export class UsermanagListPresentationComponent implements OnInit {
     this.orderType = this.userservice.order(this.orderType);
     this.sort.emit({ key: this.key, order: this.orderType });
   }
+
+  //overlay
+ /*  displayOverlay() {
+    const target = document.querySelector("#btn") as HTMLElement;
+    const overlayRef = this.overlay.create({
+      hasBackdrop: true,
+      backdropClass: "cdk-overlay-transparent-backdrop",
+      panelClass: "mat-elevation-z8",
+      positionStrategy: this.overlay
+        .position()
+        .flexibleConnectedTo(target)
+        .withPositions([
+          {
+            originX: "start",
+            originY: "bottom",
+            overlayX: "start",
+            overlayY: "top"
+          }
+        ])
+    });
+    const component = new ComponentPortal(UsermanagFormPresentationComponent);
+    const componentRef = overlayRef.attach(component);
+    overlayRef.backdropClick().subscribe(() => overlayRef.detach());
+  } */
 
     
 }

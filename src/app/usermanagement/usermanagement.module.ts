@@ -30,9 +30,6 @@ import { OrderByPipe } from './usermanag-list-container/usermanag-list-presentat
     FilterPipe,
     PhoneMaskDirective,
     OrderByPipe,
-    
-
-    
     //OverlayModule
 
   
@@ -46,6 +43,7 @@ import { OrderByPipe } from './usermanag-list-container/usermanag-list-presentat
   ],
   providers: [
     UsermanagementService
-  ]
+  ],
+  // entryComponents: [UsermanagListPresentationComponent]
 })
 export class UsermanagementModule { }
