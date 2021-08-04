@@ -16,3 +16,16 @@ export class FilterPipe implements PipeTransform {
   }
 }
 
+export class client {
+  transform(items: any[], searchClient: string): any[] {
+    if (!items) return [];
+    if (!searchClient) return items;
+
+    return items.filter(item => {
+      return Object.keys(item).some(key => {
+        return String(item[key]).toLowerCase().includes(searchClient.toLowerCase());
+      });
+    });
+  }
+}
+

@@ -18,6 +18,7 @@ export class UsermanagListPresentationComponent implements OnInit {
   column: string = 'firstname';
 
   searchText!: string;
+  searchClient!: string;
   
   public page = 1;
   public pageSize = 3;
