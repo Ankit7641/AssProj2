@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usermanagement } from '../../usermanagement.model';
@@ -9,22 +9,21 @@ import { UsermanagFormPresenterService } from '../usermanag-form-presenter/userm
   selector: 'app-usermanag-form-presentation',
   templateUrl: './usermanag-form-presentation.component.html',
   styleUrls: ['./usermanag-form-presentation.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush,
   viewProviders: [UsermanagFormPresenterService]
 })
 export class UsermanagFormPresentationComponent implements OnInit {
-
-  id = this.actRoute.snapshot.params['id'];
 
   submitted = false;
 
   private _usermanglistbyId: Usermanagement[] = [];
 
-  @Input() public set usermanglistbyId( id: Usermanagement[]) {
+  @Input() public set usermanglistbyId(id: Usermanagement[]) {
     if (id) {
+      debugger
       this._usermanglistbyId = id
+      this.userForm.patchValue(this.usermanglistbyId)
     }
-    debugger
-    this.userForm.patchValue(this.usermanglistbyId)
   }
 
   public get usermanglistbyId(): Usermanagement[] {
@@ -36,29 +35,17 @@ export class UsermanagFormPresentationComponent implements OnInit {
   public userForm: FormGroup = this.userService.bindForm();
 
   constructor(
-    private userService: UsermanagFormPresenterService,
-    private resApi: UsermanagementService,
-    public actRoute: ActivatedRoute,
-    public router: Router
+    private userService: UsermanagFormPresenterService
   ) {
-    this.usermanglistbyId=[];
-   }
+    this.usermanglistbyId = [];
+  }
 
   ngOnInit(): void {
 
-// It call data from usermanagFormPresenterService
+    // It call data from usermanagFormPresenterService
     this.userService.userData$.subscribe((userData: any) => {
-      debugger
-      console.log(userData)
       this.userData.emit(userData)
     })
-
-    if (this.id) {
-      this.resApi.getuserdetails().subscribe((res: any) => {
-        this.userForm.patchValue(res);
-      });
-    }
-
 
   }
   // Control for [fromgroup]
@@ -68,9 +55,7 @@ export class UsermanagFormPresentationComponent implements OnInit {
 
   // Clicking on submit buttom Data will come from form
   public onSubmit() {
-    console.log(this.userForm.value);
-    debugger
-    this.userService.bankdetail(this.userForm)
+    this.userService.userdetail(this.userForm)
   }
 
 }

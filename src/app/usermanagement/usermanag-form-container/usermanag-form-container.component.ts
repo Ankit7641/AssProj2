@@ -17,14 +17,10 @@ export class UsermanagFormContainerComponent implements OnInit {
 
   constructor(
     private restApi: UsermanagementService,
-    private router: Router,
     private location: Location,
     public actRoute: ActivatedRoute
   ) {
-    if(this.id){
-      debugger
-      this.usermanglistbyId$=this.restApi.getuser(this.id)
-    }
+    this.usermanglistbyId$=this.restApi.getuser(this.id)
   }
 
   ngOnInit(): void {
@@ -42,7 +38,6 @@ export class UsermanagFormContainerComponent implements OnInit {
       this.restApi.getuserdetails();
       this.location.back();
     })
-    console.log(user);
   }
 
   }

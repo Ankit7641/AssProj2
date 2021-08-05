@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Usermanagement } from '../../usermanagement.model';
 import { UsermanagListPresenterService } from '../usermanag-list-presenter/usermanag-list-presenter.service';
-//import { Overlay } from "@angular/cdk/overlay";
-//import { ComponentPortal } from "@angular/cdk/portal";
-//import { UsermanagFormPresentationComponent } from '../../usermanag-form-container/usermanag-form-presentation/usermanag-form-presentation.component';
+import { Overlay, OverlayRef } from "@angular/cdk/overlay";
+import { ComponentPortal, TemplatePortalDirective } from "@angular/cdk/portal";
+import { UsermanagFormContainerComponent } from '../../usermanag-form-container/usermanag-form-container.component';
 
 
 @Component({
@@ -33,6 +33,11 @@ export class UsermanagListPresentationComponent implements OnInit {
   public orderType!: string;
   public key!: string;
 
+  //overlay
+  overlayRef!: OverlayRef;
+  @ViewChild('overlayTemplate') overlayTemplate!: TemplatePortalDirective;
+  
+
  
   @Input() public set usermanglist( id: Usermanagement[]) {
     if (id) {
@@ -53,7 +58,8 @@ export class UsermanagListPresentationComponent implements OnInit {
   public bankGroup: FormGroup;
 
   constructor(
-    private userservice: UsermanagListPresenterService,
+    private overlay: Overlay,
+    private userservice: UsermanagListPresenterService
   ) {
     this.usermanglist = [];
     this.bankGroup = this.userservice.bindForm();
@@ -72,7 +78,6 @@ export class UsermanagListPresentationComponent implements OnInit {
   }
 //sort
   public sortData(key: string): void {
-    debugger
     this.reverse = !this.reverse;
     this.key = key;
     this.orderType = this.userservice.order(this.orderType);
@@ -80,7 +85,8 @@ export class UsermanagListPresentationComponent implements OnInit {
   }
 
   //overlay
- /*  displayOverlay() {
+  displayOverlay() {
+    debugger
     const target = document.querySelector("#btn") as HTMLElement;
     const overlayRef = this.overlay.create({
       hasBackdrop: true,
@@ -92,16 +98,16 @@ export class UsermanagListPresentationComponent implements OnInit {
         .withPositions([
           {
             originX: "start",
-            originY: "bottom",
+            originY: "top",
             overlayX: "start",
             overlayY: "top"
           }
         ])
     });
-    const component = new ComponentPortal(UsermanagFormPresentationComponent);
+    const component = new ComponentPortal(UsermanagFormContainerComponent);
     const componentRef = overlayRef.attach(component);
     overlayRef.backdropClick().subscribe(() => overlayRef.detach());
-  } */
+  }
 
     
 }

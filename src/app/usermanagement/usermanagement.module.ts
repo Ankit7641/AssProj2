@@ -13,9 +13,7 @@ import { UsermanagementService } from './usermanagement.service';
 import { FilterPipe } from './usermanag-list-container/usermanag-list-presentation/filter.pipe';
 import { PhoneMaskDirective } from './usermanag-form-container/usermanag-form-presentation/phone-mask.directive';
 import { OrderByPipe } from './usermanag-list-container/usermanag-list-presentation/order-by.pipe';
-
-
-
+import { OverlayModule } from '@angular/cdk/overlay';
 //import { OverlayModule } from '@angular/cdk/overlay';
 
 
@@ -30,20 +28,18 @@ import { OrderByPipe } from './usermanag-list-container/usermanag-list-presentat
     FilterPipe,
     PhoneMaskDirective,
     OrderByPipe,
-    //OverlayModule
-
-  
   ],
   imports: [
     CommonModule,
     UsermanagementRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   providers: [
     UsermanagementService
   ],
-  // entryComponents: [UsermanagListPresentationComponent]
+   entryComponents: [UsermanagFormPresentationComponent]
 })
 export class UsermanagementModule { }

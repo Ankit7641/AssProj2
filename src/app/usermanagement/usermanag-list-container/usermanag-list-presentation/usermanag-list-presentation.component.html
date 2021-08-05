@@ -1,6 +1,6 @@
 <div>
 
-    <button class="overlay" data-toggle="tooltip" data-placement="right" title="add" routerLink='add'>
+    <button class="overlay" data-toggle="tooltip" data-placement="right" title="add" (click)="displayOverlay()">
         Add
     </button>
     <div class="col-md-3">
@@ -12,7 +12,7 @@
     <div class="col-md-3">
         <label for="clientname" class="form-label">client Name: </label>
         <select class="form-select" id="clientname" [(ngModel)]="searchClient">
-            <option selected disabled value="">Choose...</option>
+            <option selected enabled value="">Choose...</option>
             <option value="clint1">clint1</option>
             <option>clint2</option>
             <option>clint3</option>
@@ -20,7 +20,7 @@
         </select>
     </div>
 
-    <table class="table table-responsive table-hover" *ngIf="( usermanglist ).length > 0,else noResults">
+    <table class="table table-responsive table-hover" *ngIf= " usermanglist .length > 0,else noResults">
 
         <thead>
             <tr>
@@ -69,7 +69,7 @@
 
             </tr>
         </thead>
-        <tbody *ngFor="let usermanag of usermanglist | filter: searchText | filter: searchClient;; let i = index">
+        <tbody *ngFor="let usermanag of usermanglist | filter: searchText | filter: searchClient ; let i = index">
             <tr>
                 <td> {{usermanag.id}} </td>
                 <td> {{usermanag.firstname}} </td>

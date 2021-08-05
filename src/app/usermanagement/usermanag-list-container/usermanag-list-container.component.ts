@@ -17,9 +17,6 @@ export class UsermanagListContainerComponent implements OnInit {
   public orderAs!: string;
   public fieldName!: string;
   
-
-  
-
   constructor(
     private userservice: UsermanagementService,
     private location: Location

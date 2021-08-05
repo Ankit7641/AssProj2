@@ -3,9 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable, Subject } from 'rxjs';
 import { UsermanagementModule } from '../../usermanagement.module';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsermanagFormPresenterService {
 
   public userData: Subject<any> = new Subject();
@@ -28,22 +26,10 @@ export class UsermanagFormPresenterService {
     });
   }
 
-  public bindControlValue(userform: FormGroup, user: UsermanagementModule): FormGroup {
-    debugger
-    if (user) {
-      debugger
-      userform.patchValue(user);
-    }
-    return userform;
-  } 
-
   // Data will get
-  public bankdetail(userForm: FormGroup) {
+  public userdetail(userForm: FormGroup) {
     if (userForm.valid) {
-      debugger
-      console.log('done');
-      this.userData.next(userForm.value);
-      console.log(this.bankdetail);
+      this.userData.next(userForm.value);/*  */
     } else {
     }
   }

@@ -15,3 +15,15 @@
   body {
   font-family: 'Lato', sans-serif;
 }
+app-popup {
+  display: none;
+}
+
+mat-toolbar {
+  margin-bottom: 20px;
+}
+
+.cdk-overlay-pane {
+  background: red;
+  padding: 20px;
+}

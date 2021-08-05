@@ -43,7 +43,7 @@ export class UsermanagListPresenterService {
     console.log('delete', id);
     if (window.confirm('Are you sure, you want to delete?')) {
       this.restApi.deleteuserdetail(id).subscribe(data => {
-        // this.loaduserdetail()
+        //this.loaduserdetail()
       })
     }
   }
